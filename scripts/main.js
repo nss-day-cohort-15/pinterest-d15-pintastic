@@ -3,12 +3,12 @@
 let app = angular.module("Pintastic", ["ngRoute"])
           .constant("FirebaseURL", "https://pintastic-76e69.firebaseio.com/");
 
-  app.config(function($routeProvider){//put FBCreds back in later
-    // let authConfig = {
-    //   apiKey: FBCreds.apiKey,
-    //   authDomain: FBCreds.authDomain
-    // };
-    // firebase.initializeApp(authConfig);
+  app.config(function($routeProvider, FBCreds){
+    let authConfig = {
+      apiKey: FBCreds.apiKey,
+      authDomain: FBCreds.authDomain
+    };
+    firebase.initializeApp(authConfig);
 
     $routeProvider
       .when("/boards", {
@@ -27,5 +27,5 @@ let app = angular.module("Pintastic", ["ngRoute"])
         templateUrl: "partials/newPin.html",
         controller: "NewPinCtrl"
       })
-      .otherwise("/login");
+      .otherwise("/");
   });

@@ -2,28 +2,34 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <title>PINTASTIC</title>
 </head>
 <body ng-app="Pintastic">
-  <h1>WELCOME TO PINTASTIC</h1>
-    <div ng-include="'partials/nav.html'">
-    </div>
-    <!-- third party scripts -->
-    <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
-    <!-- app related scripts -->
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <!-- Factories -->
-    <!-- Controllers -->
-    <script type="text/javascript" src="scripts/controllers/NavCtrl.js"></script>
-    <script type="text/javascript" src="scripts/controllers/BoardCtrl.js"></script>
-    <script type="text/javascript" src="scripts/controllers/NewBoardCtrl.js"></script>
-    <script type="text/javascript" src="scripts/controllers/PinCtrl.js"></script>
-    <script type="text/javascript" src="scripts/controllers/NewPinCtrl.js"></script>
+  <div ng-include="'partials/nav.html'">
+  </div>
+
+  <div ng-view>
+
+  </div>
+  <!-- third party scripts -->
+  <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+  <!-- app related scripts -->
+  <script type="text/javascript" src="scripts/main.js"></script>
+  <!-- Factories -->
+  <script type="text/javascript" src="scripts/values/FBCreds.js"></script>
+  <script type="text/javascript" src="scripts/Factories/AuthFactory.js"></script>
+  <!-- Controllers -->
+  <script type="text/javascript" src="scripts/controllers/NavCtrl.js"></script>
+  <script type="text/javascript" src="scripts/controllers/BoardCtrl.js"></script>
+  <script type="text/javascript" src="scripts/controllers/NewBoardCtrl.js"></script>
+  <script type="text/javascript" src="scripts/controllers/PinCtrl.js"></script>
+  <script type="text/javascript" src="scripts/controllers/NewPinCtrl.js"></script>
 
 </body>
 
