@@ -2,6 +2,8 @@
 
 app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
 
+  let boardId = []
+
   let addNewBoard = (newBoard) => {
     return $q((resolve, reject) => {
       $http.post(`${FirebaseURL}boards.json`,
@@ -24,6 +26,8 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
       Object.keys(boardsObj).forEach((key) => {
         boardsObj[key].boardId = key
         boards.push(boardsObj[key])
+        boardId = boardsObj[key].boardId
+        console.log(boardId, "boardId")
       })
       resolve(boards)
       console.log("boards", boards)
@@ -47,5 +51,33 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
       })
     })
   }
-  return {addNewBoard, getBoardsFromFirebase, addNewPinToFirebase}
+
+  let deleteBoardFromFirebase = (boardId) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}boards/${boardId}.json`)
+      .success((objFromFirebase) => {
+        resolve(objFromFirebase)
+      })
+        .error((error) => {
+          reject(error)
+        })
+    })
+  }
+
+  let setBoardId = (id) => {
+    boardId = id
+    console.log(boardId)
+  }
+
+  let getBoardId = () => {
+    return boardId
+  }
+
+  return {
+    addNewBoard,
+    getBoardsFromFirebase,
+    addNewPinToFirebase,
+    deleteBoardFromFirebase,
+    getBoardId,
+    setBoardId}
 });

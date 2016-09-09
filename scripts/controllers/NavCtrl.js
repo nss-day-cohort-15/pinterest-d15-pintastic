@@ -3,7 +3,6 @@
 app.controller("NavCtrl", function($scope, $location, AuthFactory){
 
   $scope.loginButton = "login"
-  console.log("HELLO NAVCTRL YOU LOOK GREAT!")
 
   $scope.login = function(){
     AuthFactory.authWithProvider()
