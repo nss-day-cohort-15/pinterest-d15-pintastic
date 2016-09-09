@@ -11,6 +11,10 @@ app.factory("AuthFactory", function(){
   })
   let authWithProvider = function(){
     return firebase.auth().signInWithPopup(provider)
-  };
-return {authWithProvider};
+  }
+
+  let getUser = () => {
+    return currentUserId
+  }
+return {authWithProvider, getUser};
 });

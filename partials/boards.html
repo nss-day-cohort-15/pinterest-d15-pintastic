@@ -1,3 +1,14 @@
 <div ngn-controller="BoardCtrl">
-  <div>{{message}}</div>
+  <div class="container">
+    <div class="row">
+      <div ng-repeat="board in boardArray">
+        <div class="col-md-4">
+          <h4>{{board.name}}</h4>
+          <p>{{board.category}}</p>
+          <p>{{board.description}}</p>
+          <a ng-href="#/newpin">Add a Pin</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
