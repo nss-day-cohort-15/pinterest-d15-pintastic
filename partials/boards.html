@@ -2,11 +2,17 @@
   <div class="container">
     <div class="row">
       <div ng-repeat="board in boardArray">
-        <div class="col-md-4">
+        <div class="col-md-4 {{board.boardId}}">
           <h4>{{board.name}}</h4>
           <p>{{board.category}}</p>
           <p>{{board.description}}</p>
-          <a ng-href="#/newpin">Add a Pin</a>
+          <div ng-repeat="pin in pinArray">
+            <p>{{pin.name}}</p>
+            <p>{{pin.description}}</p>
+            <img ng-src="{{pin.url}}"/>
+          </div>
+          <a ng-href="#/newpin" ng-click="boardIdToPin(board.boardId)">Add a Pin</a>
+          <button class="btn btn-danger" ng-click="deleteBoard(board.boardId)">Delete</button>
         </div>
       </div>
     </div>

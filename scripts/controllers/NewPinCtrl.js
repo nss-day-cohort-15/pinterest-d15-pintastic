@@ -6,14 +6,16 @@ app.controller("NewPinCtrl", function($scope, $location, DatabaseFactory){
     $scope.newPin = {
     name: "",
     url: "",
-    description: ""
+    description: "",
+    boardId: DatabaseFactory.getBoardId()
   };
+  console.log("DatabaseFactory boardId", DatabaseFactory.getBoardId())
 
-  $scope.addNewPinToBoard = () => {
+  $scope.addNewPinToFirebase = () => {
     console.log($scope.newPin, "newPin")
     DatabaseFactory.addNewPinToFirebase($scope.newPin)
     .then((newPinData)=>{
-    console.log("new Pin Data", $scope.newPinData)
+    console.log("new Pin Data", newPinData)
     })
   }
 });

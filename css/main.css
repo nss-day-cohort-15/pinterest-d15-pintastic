@@ -1,4 +1,12 @@
 h1 {
   color: tomato; }
 
+img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px; }
+
+.board {
+  border: 1px solid blue; }
+
 /*# sourceMappingURL=main.css.map */
