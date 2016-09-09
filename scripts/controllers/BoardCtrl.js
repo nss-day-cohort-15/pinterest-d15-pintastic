@@ -15,8 +15,12 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
 
   DatabaseFactory.getPinFromFirebase()
   .then((pin)=>{
-    $scope.pinArray.push(pin)
+    for(var key in pin) {
+    $scope.pinArray.push(pin[key])
+    console.log(key, "key")
+    }
     console.log(pin, "pin")
+    // $scope.pinArray.push(pin)
   })
 
   $scope.boardIdToPin = (id) => {

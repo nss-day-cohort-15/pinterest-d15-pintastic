@@ -53,18 +53,18 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
   }
 
   let getPinFromFirebase = () => {
-    let pinsObject = {}
+    let pinsArray = []
     return $q((resolve, reject) => {
       $http.get(`${FirebaseURL}pins.json`)
     .success((pinsObj) => {
       Object.keys(pinsObj).forEach((key) => {
         pinsObj[key].boardId = key
-        pinsObject = pinsObj[key]
+        pinsArray.push(pinsObj[key])
         boardId = pinsObj[key].boardId
         console.log(boardId, "boardId")
       })
-      resolve(pinsObject)
-      console.log("pins", pinsObject)
+      resolve(pinsArray)
+      console.log("pins", pinsArray)
     })
     .error((error) => {
       reject(error)
