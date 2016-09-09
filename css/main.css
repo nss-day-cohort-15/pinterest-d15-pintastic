@@ -6,7 +6,8 @@ img {
   height: auto;
   margin-bottom: 10px; }
 
-.board {
-  border: 1px solid blue; }
+.card {
+  border: 1px solid blue;
+  margin: 5px; }
 
 /*# sourceMappingURL=main.css.map */
