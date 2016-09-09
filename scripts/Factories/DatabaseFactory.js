@@ -52,6 +52,26 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     })
   }
 
+  let getPinFromFirebase = () => {
+    let pinsObject = {}
+    return $q((resolve, reject) => {
+      $http.get(`${FirebaseURL}pins.json`)
+    .success((pinsObj) => {
+      Object.keys(pinsObj).forEach((key) => {
+        pinsObj[key].boardId = key
+        pinsObject = pinsObj[key]
+        boardId = pinsObj[key].boardId
+        console.log(boardId, "boardId")
+      })
+      resolve(pinsObject)
+      console.log("pins", pinsObject)
+    })
+    .error((error) => {
+      reject(error)
+      })
+    })
+  }
+
   let deleteBoardFromFirebase = (boardId) => {
     return $q((resolve, reject) => {
       $http.delete(`${FirebaseURL}boards/${boardId}.json`)
@@ -73,11 +93,15 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     return boardId
   }
 
+
+
   return {
     addNewBoard,
     getBoardsFromFirebase,
     addNewPinToFirebase,
     deleteBoardFromFirebase,
     getBoardId,
-    setBoardId}
+    setBoardId,
+    getPinFromFirebase
+  }
 });

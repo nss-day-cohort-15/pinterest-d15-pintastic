@@ -2,6 +2,7 @@
 
 app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
   $scope.boardArray = []
+  $scope.pinArray = []
 
   DatabaseFactory.getBoardsFromFirebase()
   .then((boardsData) => {
@@ -10,6 +11,12 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
       console.log(key, "key")
     $scope.boardArray.push(boardsData[key])
     }
+  })
+
+  DatabaseFactory.getPinFromFirebase()
+  .then((pin)=>{
+    $scope.pinArray.push(pin)
+    console.log(pin, "pin")
   })
 
   $scope.boardIdToPin = (id) => {
