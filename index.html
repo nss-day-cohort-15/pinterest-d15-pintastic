@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- <link rel="stylesheet" type="text/css" href="/lib/bower_components/materialize/dist/css/materialize.min.css"> -->
   <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -10,7 +11,14 @@
   <div ng-include="'partials/nav.html'">
   </div>
 
-  <div ng-view>
+<!--   <div ng-show="!$parent.isLoggedIn">
+    <h1>Welcome to Pintastic</h1>
+      <div>
+        Please login to view your Pintastic boards, ya dingus.
+      </div>
+  </div> -->
+
+  <div class="view" ng-view>
 
   </div>
   <!-- third party scripts -->
@@ -29,7 +37,6 @@
   <script type="text/javascript" src="scripts/controllers/NavCtrl.js"></script>
   <script type="text/javascript" src="scripts/controllers/BoardCtrl.js"></script>
   <script type="text/javascript" src="scripts/controllers/NewBoardCtrl.js"></script>
-  <script type="text/javascript" src="scripts/controllers/PinCtrl.js"></script>
   <script type="text/javascript" src="scripts/controllers/NewPinCtrl.js"></script>
 
 </body>

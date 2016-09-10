@@ -7,7 +7,7 @@ app.controller("NewBoardCtrl", function($scope, $location, DatabaseFactory, Auth
     category: "",
     description: "",
     uid: AuthFactory.getUser(),
-    boardId: ""
+    boardId: DatabaseFactory.getBoardId()
   };
 
   $scope.addBoardToFirebase = () => {

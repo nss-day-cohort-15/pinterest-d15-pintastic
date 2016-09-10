@@ -1,4 +1,13 @@
 h1 {
   color: tomato; }
 
+img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px; }
+
+.card {
+  border: 1px solid blue;
+  margin: 5px; }
+
 /*# sourceMappingURL=main.css.map */
