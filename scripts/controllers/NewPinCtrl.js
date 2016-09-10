@@ -16,6 +16,7 @@ app.controller("NewPinCtrl", function($scope, $location, DatabaseFactory){
     DatabaseFactory.addNewPinToFirebase($scope.newPin)
     .then((newPinData)=>{
     console.log("new Pin Data", newPinData)
+    $location.path('boards')
     })
   }
 });

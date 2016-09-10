@@ -1,3 +1,6 @@
+body{
+  background-color: brown;
+}
 h1  {
   color: tomato;
 }
@@ -31,7 +34,7 @@ hr{
 
 .view{
   margin-top: -1.5%;
-  background-color: brown;
+  // background-color: brown;
 }
 
 .name{
@@ -60,4 +63,37 @@ hr{
   background-color: lightgrey;
   padding: 2%;
   border-radius: 20px;
+}
+
+.addPinForm{
+  margin-top: 8%;
+  margin: auto;
+
+  h1{
+    // margin: auto;
+    margin-top: 7%;
+    text-align: center;
+    color: white;
+  }
+
+  .form-group{
+    width: 60%;
+    margin: auto;
+
+    label{
+      color: white;
+    }
+
+    input{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    }
+
+    .submitpin{
+      // margin: auto;
+      margin-left: 46%;
+      margin-top: 2%;
+    }
+  }
 }
