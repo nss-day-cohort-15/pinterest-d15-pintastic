@@ -3,6 +3,7 @@
 app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
 
   let boardId = []
+  let pinId = []
 
   let addNewBoard = (newBoard) => {
     return $q((resolve, reject) => {
@@ -58,10 +59,10 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
       $http.get(`${FirebaseURL}pins.json`)
     .success((pinsObj) => {
       Object.keys(pinsObj).forEach((key) => {
-        pinsObj[key].boardId = key
+        pinsObj[key].pinId = key
         pinsArray.push(pinsObj[key])
-        boardId = pinsObj[key].boardId
-        console.log(boardId, "boardId")
+        pinId = pinsObj[key].boardId
+        console.log(pinId, "boardId")
       })
       resolve(pinsArray)
       console.log("pins", pinsArray)
@@ -92,8 +93,6 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
   let getBoardId = () => {
     return boardId
   }
-
-
 
   return {
     addNewBoard,

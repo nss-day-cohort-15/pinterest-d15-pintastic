@@ -16,10 +16,19 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
   DatabaseFactory.getPinFromFirebase()
   .then((pin)=>{
     for(var key in pin) {
-    $scope.pinArray.push(pin[key])
-    console.log(key, "key")
+      $scope.pinArray.push(pin[key])
+      console.log('PINARRAY', $scope.pinArray)
     }
-    console.log(pin, "pin")
+    let matches = []
+    for(var i = 0; i < $scope.pinArray.length; i++){
+      for(var j = 0; j < $scope.boardArray.length; j++){
+        if($scope.pinArray[i].boardId === $scope.boardArray[j].boardId){
+          matches.push($scope.pinArray[i].boardId)
+          console.log('HOPEFUL', matches)
+        }
+        console.log('STATUS', $scope.pinArray[i], $scope.boardArray[j].boardId)
+      }
+    }
     // $scope.pinArray.push(pin)
   })
 

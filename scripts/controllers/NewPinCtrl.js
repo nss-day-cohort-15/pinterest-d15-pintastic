@@ -7,6 +7,7 @@ app.controller("NewPinCtrl", function($scope, $location, DatabaseFactory){
     name: "",
     url: "",
     description: "",
+    pinId: "",
     boardId: DatabaseFactory.getBoardId()
   };
   console.log("DatabaseFactory boardId", DatabaseFactory.getBoardId())
