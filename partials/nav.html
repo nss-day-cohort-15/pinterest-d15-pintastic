@@ -1,5 +1,6 @@
 <!-- TODO: Add a nav controller -->
-<nav class="navbar navbar-default" ng-controller="NavCtrl"> <!-- still keep NavCtrl so that functionality works when navbar is injected (which it will be at all times, bc navbar) -->
+<div  ng-controller="NavCtrl">
+<nav class="navbar navbar-default"> <!-- still keep NavCtrl so that functionality works when navbar is injected (which it will be at all times, bc navbar) -->
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -35,3 +36,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<div ng-show='show' ng-include="'partials/welcome.html'"></div>
+</div>

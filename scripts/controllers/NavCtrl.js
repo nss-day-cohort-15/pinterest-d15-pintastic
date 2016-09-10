@@ -25,6 +25,7 @@ app.controller("NavCtrl", function($scope, $location, AuthFactory){
   $scope.logout = function() {
     console.log('USER HAS LOGGED OUT');
     $location.path("/")
+    $scope.show = true
     return firebase.auth().signOut();
   };
   // $scope.isActive = (viewLocation) => viewLocation === $location.path();
