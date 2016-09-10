@@ -12,7 +12,7 @@ app.controller("NavCtrl", function($scope, $location, AuthFactory){
       if(user){
         console.log('USER', user)
         $location.path("boards")
-      $scope.show = false
+        $scope.show = false
       }
       $scope.$apply()
     }).catch(function(error){
