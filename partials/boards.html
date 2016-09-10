@@ -1,4 +1,5 @@
-<div ngn-controller="BoardCtrl">
+<div>
+  <div ng-include="'partials/profile.html'"></div>
   <div class="container">
     <div class="row">
       <div ng-repeat="board in boardArray">
@@ -9,7 +10,7 @@
           <div ng-repeat="pin in pinArray">
             <p>{{pin.name}}</p>
             <p>{{pin.description}}</p>
-            <img ng-src="{{pin.url}}"/>
+            <img class="pinImg" ng-src="{{pin.url}}"/>
             <hr>
           </div>
           <a class='addpin' ng-href="#/newpin" ng-click="boardIdToPin(board.boardId)">Add a Pin</a>
