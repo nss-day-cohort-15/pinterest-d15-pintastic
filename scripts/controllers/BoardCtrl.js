@@ -26,7 +26,7 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
           matches.push($scope.pinArray[i].boardId)
           console.log('HOPEFUL', matches)
         }
-        console.log('STATUS', $scope.pinArray[i], $scope.boardArray[j].boardId)
+        console.log('STATUS', $scope.pinArray[i].boardId === $scope.boardArray[j].boardId)
       }
     }
     // $scope.pinArray.push(pin)

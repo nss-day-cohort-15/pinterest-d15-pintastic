@@ -8,10 +8,12 @@
           <p>Category: {{board.category}}</p>
           <p>Description: {{board.description}}</p><hr>
           <div ng-repeat="pin in pinArray">
-            <p>{{pin.name}}</p>
-            <p>{{pin.description}}</p>
-            <img class="pinImg" ng-src="{{pin.url}}"/>
-            <hr>
+            <div class="{{pin.pinId}}">
+              <p class="pinName">{{pin.name}}</p><span class="deletePin glyphicon glyphicon-remove" ng-click="deletePin(pin.pinId)"></span>
+              <p>{{pin.description}}</p>
+              <img class="pinImg" ng-src="{{pin.url}}"/>
+              <hr>
+            </div>
           </div>
           <a class='addpin' ng-href="#/newpin" ng-click="boardIdToPin(board.boardId)">Add a Pin</a>
           <!-- <button class="btn btn-danger" ng-click="deleteBoard(board.boardId)">Delete</button> -->
