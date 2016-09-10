@@ -2,6 +2,11 @@ h1  {
   color: tomato;
 }
 
+.container-fluid{
+  border-bottom: 3px solid black;
+  margin-bottom: -1%;
+}
+
 img {
   width: 200px;
   height: auto;
@@ -21,17 +26,18 @@ hr{
   width: 30%;
   text-align: center;
   margin-top: 2%;
+  padding-bottom: 2%;
 }
 
 .view{
   margin-top: -1.5%;
-  background-image: url('http://wallpaper-hd.net/wp-content/uploads/2016/08/photo-collage-wallpaper-HD5-600x338.jpg');
-  // background-size: 100% 100%
+  background-color: brown;
 }
 
 .name{
+  font-family: Georgia;
   font-weight: bolder;
-  font-size: 1.6em;
+  font-size: 1.8em;
   display: inline-block;
 }
 

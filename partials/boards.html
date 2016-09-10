@@ -3,7 +3,7 @@
     <div class="row">
       <div ng-repeat="board in boardArray">
         <div class="card col-md-3 {{board.boardId}}">
-          <h4 class="name">{{board.name}}</h4><span class="delete glyphicon glyphicon-remove" ng-click="deleteBoard(board.boardId)"></span>
+          <h4 class="name brand">{{board.name}}</h4><span class="delete glyphicon glyphicon-remove" ng-click="deleteBoard(board.boardId)"></span>
           <p>Category: {{board.category}}</p>
           <p>Description: {{board.description}}</p><hr>
           <div ng-repeat="pin in pinArray">

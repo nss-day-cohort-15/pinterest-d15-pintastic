@@ -2,14 +2,18 @@
 
 app.controller("NavCtrl", function($scope, $location, AuthFactory){
 
-  $scope.loginButton = "login"
+  // $scope.loginButton = "login"
+  $scope.show = true
 
   $scope.login = function(){
     AuthFactory.authWithProvider()
     .then(function(result){
       var user = result.user.uid
-      $location.path("boards")
-      // $scope.loginButton = "logout"
+      if(user){
+        console.log('USER', user)
+        $location.path("boards")
+      $scope.show = false
+      }
       $scope.$apply()
     }).catch(function(error){
       let errorCode = error.code,
