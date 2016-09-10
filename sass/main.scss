@@ -65,7 +65,7 @@ hr{
   border-radius: 20px;
 }
 
-.addPinForm{
+.addPinForm, .addBoardForm{
   margin-top: 8%;
   margin: auto;
 
@@ -90,8 +90,8 @@ hr{
     text-align: center;
     }
 
-    .submitpin{
-      // margin: auto;
+    .submitpin, .createBoard{
+      // margin: 0 auto;
       margin-left: 46%;
       margin-top: 2%;
     }
