@@ -26,6 +26,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <!-- TODO: Use Angular to loop through nav items -->
       <ul class="nav navbar-nav navbar-right">
+        <li ng-show="!show"><a ng-href="#/boards">My Boards</a></li>
         <li ng-show="!show"><a ng-href="#/newBoard">Create Board</a></li>
         <li><a ng-href="#/" ng-click="logout()" ng-show='!show'>Logout</a></li>
         <li><a ng-href='#' ng-click="login()" ng-show='show'>Login</a></li>

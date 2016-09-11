@@ -94,6 +94,18 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     return boardId
   }
 
+  let deletePin = function(pinId){
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}pins/${pinId}.json`)
+      .success((deleteRsp) => {
+        resolve(deleteRsp)
+      })
+      .error((error) => {
+        reject(error)
+      })
+    })
+  }
+
   return {
     addNewBoard,
     getBoardsFromFirebase,
@@ -101,6 +113,7 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     deleteBoardFromFirebase,
     getBoardId,
     setBoardId,
-    getPinFromFirebase
+    getPinFromFirebase,
+    deletePin
   }
 });
