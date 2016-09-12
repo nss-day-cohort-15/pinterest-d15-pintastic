@@ -27,7 +27,6 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
         }
       }
     }
-    // $scope.pinArray.push(pin)
   })
 })
 
@@ -53,7 +52,14 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
   $scope.delete = (pinId) => {
     DatabaseFactory.deletePin(pinId)
     .then((response) => {
-      DatabaseFactory.getPinFromFirebase()
+      DatabaseFactory.getBoardsFromFirebase()
+      .then((boards) => {
+        $scope.boardArray = []
+        for (var key in boards) {
+          $scope.boardArray.push(boards[key])
+        }
+        DatabaseFactory.getPinFromFirebase()
+      })
         .then((pins) => {
           $scope.pinArray = []
           for(var key in pins) {

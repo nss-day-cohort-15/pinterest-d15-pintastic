@@ -106,23 +106,6 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     })
   }
 
-  let compare = function($scope, pins, boards){
-    let matches = []
-    for(var i = 0; i < $scope.pins.length; i++){
-      for(var j = 0; j < $scope.boards.length; j++){
-        if($scope.pins[i].boardId === $scope.boards[j].boardId){
-          matches.push($scope.pins[i].boardId)
-          console.log('MATCHES', matches)
-          // var myEl = angular.element(document.querySelector('.$scope.boardArray[j].boardId'))
-          console.log('AHHHH', $scope.pinArray[i].boardId)
-          console.log('AHHHH', $scope.boardArray[j].boardId)
-          // myEl.append($scope.pinArray[i])
-        }
-      }
-    // console.log('STATUS', $scope.pinArray[i].boardId === $scope.boardArray[j].boardId)
-    }
-  }
-
   return {
     addNewBoard,
     getBoardsFromFirebase,
@@ -131,7 +114,6 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     getBoardId,
     setBoardId,
     getPinFromFirebase,
-    deletePin,
-    compare
+    deletePin
   }
 })
