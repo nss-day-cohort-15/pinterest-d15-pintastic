@@ -11,15 +11,11 @@ app.controller("NewBoardCtrl", function($scope, $location, DatabaseFactory, Auth
   };
 
   $scope.addBoardToFirebase = () => {
-
-  DatabaseFactory.addNewBoard($scope.newBoard)
-  .then((data) => {
-    DatabaseFactory.getBoardsFromFirebase()
-    console.log(data, "data")
-  })
-
-}
-  $scope.btnText = "Submit"
-
-
+    DatabaseFactory.addNewBoard($scope.newBoard)
+    .then((data) => {
+      DatabaseFactory.getBoardsFromFirebase()
+      console.log(data, "data")
+      $location.url('/boards')
+    })
+  }
 });

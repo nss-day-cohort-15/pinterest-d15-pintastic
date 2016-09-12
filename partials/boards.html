@@ -9,7 +9,7 @@
           <p>Description: {{board.description}}</p><hr>
           <div ng-repeat="pin in board.pins ">
             <div class="{{pin.pinId}}">
-              <p class="pinName">{{pin.name}}</p><span class="deletePin glyphicon glyphicon-remove" ng-click="delete(pin.pinId)"></span>
+              <p class="pinName">{{pin.name}}</p><!-- <span class="deletePin glyphicon glyphicon-remove" ng-click="delete(pin.pinId)"></span> -->
               <p>{{pin.description}}</p>
               <img class="pinImg" ng-src="{{pin.url}}"/>
               <hr>
