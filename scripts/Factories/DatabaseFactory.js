@@ -116,4 +116,4 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     getPinFromFirebase,
     deletePin
   }
-});
+})
