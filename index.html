@@ -5,12 +5,11 @@
   <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
   <title>PINTASTIC</title>
 </head>
 <body ng-app="Pintastic">
-  <div ng-include="'partials/nav.html'">
-  </div>
-
+  <div ng-include="'partials/nav.html'"></div>
 <!--   <div ng-show="!$parent.isLoggedIn">
     <h1>Welcome to Pintastic</h1>
       <div>
@@ -18,7 +17,7 @@
       </div>
   </div> -->
 
-  <div ng-view>
+  <div class="view" ng-view>
 
   </div>
   <!-- third party scripts -->
@@ -38,7 +37,7 @@
   <script type="text/javascript" src="scripts/controllers/BoardCtrl.js"></script>
   <script type="text/javascript" src="scripts/controllers/NewBoardCtrl.js"></script>
   <script type="text/javascript" src="scripts/controllers/NewPinCtrl.js"></script>
-
+  <script type="text/javascript" src="scripts/controllers/ProfileCtrl.js"></script>
 </body>
 
 </html>

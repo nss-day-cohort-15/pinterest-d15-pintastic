@@ -1,18 +1,22 @@
-<div ngn-controller="BoardCtrl">
+<div>
+  <div ng-include="'partials/profile.html'"></div>
   <div class="container">
     <div class="row">
       <div ng-repeat="board in boardArray">
         <div class="card col-md-3 {{board.boardId}}">
-          <h4>{{board.name}}</h4>
-          <p>{{board.category}}</p>
-          <p>{{board.description}}</p>
+          <h4 class="name brand">{{board.name}}</h4><span class="delete glyphicon glyphicon-remove" ng-click="deleteBoard(board.boardId)"></span>
+          <p>Category: {{board.category}}</p>
+          <p>Description: {{board.description}}</p><hr>
           <div ng-repeat="pin in pinArray">
-            <p>{{pin.name}}</p>
-            <p>{{pin.description}}</p>
-            <img ng-src="{{pin.url}}"/>
+            <div class="{{pin.pinId}}">
+              <p class="pinName">{{pin.name}}</p><span class="deletePin glyphicon glyphicon-remove" ng-click="delete(pin.pinId)"></span>
+              <p>{{pin.description}}</p>
+              <img class="pinImg" ng-src="{{pin.url}}"/>
+              <hr>
+            </div>
           </div>
-          <a ng-href="#/newpin" ng-click="boardIdToPin(board.boardId)">Add a Pin</a>
-          <button class="btn btn-danger" ng-click="deleteBoard(board.boardId)">Delete</button>
+          <a class='addpin' ng-href="#/newpin" ng-click="boardIdToPin(board.boardId)">Add a Pin</a>
+          <!-- <button class="btn btn-danger" ng-click="deleteBoard(board.boardId)">Delete</button> -->
         </div>
       </div>
     </div>

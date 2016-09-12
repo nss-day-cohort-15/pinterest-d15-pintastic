@@ -2,11 +2,17 @@
 
 app.factory("AuthFactory", function(){
   let currentUserId = null;
+  let userInfo = {
+    name: null,
+    img: null,
+  }
   let provider = new firebase.auth.GoogleAuthProvider();
 
   firebase.auth().onAuthStateChanged(function(user){
     if(user) {
       currentUserId = user.uid;
+      userInfo.name = user.displayName
+      userInfo.img = user.photoURL
     }
   })
   let authWithProvider = function(){
@@ -16,5 +22,10 @@ app.factory("AuthFactory", function(){
   let getUser = () => {
     return currentUserId
   }
-return {authWithProvider, getUser};
+
+  let getUserInfo = function(){
+    return userInfo
+  }
+
+return {authWithProvider, getUser, getUserInfo};
 });

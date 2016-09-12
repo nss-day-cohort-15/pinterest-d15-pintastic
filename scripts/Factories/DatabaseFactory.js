@@ -3,6 +3,7 @@
 app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
 
   let boardId = []
+  let pinId = []
 
   let addNewBoard = (newBoard) => {
     return $q((resolve, reject) => {
@@ -58,10 +59,10 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
       $http.get(`${FirebaseURL}pins.json`)
     .success((pinsObj) => {
       Object.keys(pinsObj).forEach((key) => {
-        pinsObj[key].boardId = key
+        pinsObj[key].pinId = key
         pinsArray.push(pinsObj[key])
-        boardId = pinsObj[key].boardId
-        console.log(boardId, "boardId")
+        pinId = pinsObj[key].boardId
+        console.log(pinId, "boardId")
       })
       resolve(pinsArray)
       console.log("pins", pinsArray)
@@ -93,7 +94,17 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     return boardId
   }
 
-
+  let deletePin = function(pinId){
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}pins/${pinId}.json`)
+      .success((deleteRsp) => {
+        resolve(deleteRsp)
+      })
+      .error((error) => {
+        reject(error)
+      })
+    })
+  }
 
   return {
     addNewBoard,
@@ -102,6 +113,7 @@ app.factory("DatabaseFactory", function($q, $http, FirebaseURL, AuthFactory) {
     deleteBoardFromFirebase,
     getBoardId,
     setBoardId,
-    getPinFromFirebase
+    getPinFromFirebase,
+    deletePin
   }
 });

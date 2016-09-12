@@ -1,16 +1,20 @@
-<div ng-controller="NewBoardCtrl">
-  <label>New Board</label>
+<div ng-controller="NewBoardCtrl" class="addBoardForm">
+  <h1>New Board</h1>
+  <form>
   <div class="form-group">
-    <label>Name</label>
+    <label>Name: </label>
     <input type="text" class="form-control" placeholder="Name your board" ng-model="newBoard.name"/>
   </div>
   <div class="form-group">
-    <label>Category</label>
+    <label>Category: </label>
     <input type="text" class="form-control" placeholder="Category" ng-model="newBoard.category"/>
   </div>
   <div class="form-group">
-    <label>Description</label>
+    <label>Description: </label>
     <input type="text" class="form-control" placeholder="What's it for?" ng-model="newBoard.description"/>
   </div>
-  <button class="btn btn-default btn-info" ng-click="addBoardToFirebase()">{{btnText}}</button>
+  <div class="form-group">
+    <button class="btn btn-default btn-info createBoard" ng-click="addBoardToFirebase()">Create Board</button>
+  </div>
+  </form>
 </div>

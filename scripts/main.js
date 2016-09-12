@@ -19,12 +19,12 @@ let app = angular.module("Pintastic", ["ngRoute"])
         templateUrl: "partials/pins.html",
         controller: "PinCtrl"
       })
-      .when("/newboard", {
-        templateUrl: "partials/newBoard.html",
+      .when("/newBoard", {
+        templateUrl: "partials/NewBoard.html",
         controller: "NewBoardCtrl"
       })
       .when("/newpin", {
-        templateUrl: "partials/newPin.html",
+        templateUrl: "partials/NewPin.html",
         controller: "NewPinCtrl"
       })
       .otherwise("/");

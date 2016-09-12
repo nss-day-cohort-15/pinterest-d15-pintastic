@@ -1,16 +1,18 @@
-<div>
-  <label>New Pin</label>
+<div class="addPinForm">
+  <h1>New Pin</h1>
   <div class="form-group">
-    <label>Name</label>
-    <input type="text" class="form-control" placeholder="Name your pin" ng-model="newPin.name"/>
+    <label for="pinname">Name: </label>
+    <input type="text" class="form-control" placeholder="Name your pin" id="pinname" ng-model="newPin.name"/>
   </div>
   <div class="form-group">
-    <label>Image URL</label>
-    <input type="text" class="form-control" placeholder="Category" ng-model="newPin.url"/>
+    <label>Image URL:</label>
+    <input type="text" class="form-control" placeholder="Enter your image URL" ng-model="newPin.url"/>
   </div>
   <div class="form-group">
-    <label>Description</label>
+    <label>Description:</label>
     <input type="text" class="form-control" placeholder="Describe your pin" ng-model="newPin.description"/>
   </div>
-  <button class="btn btn-default btn-info" ng-click="addNewPinToFirebase()">{{btnText}}</button>
+  <div class="form-group">
+  <button class="btn btn-default btn-info submitpin" ng-click="addNewPinToFirebase()">{{btnText}}</button>
+  </div>
 </div>
