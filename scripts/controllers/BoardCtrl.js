@@ -3,6 +3,7 @@
 app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
   $scope.boardArray = []
   $scope.pinArray = []
+  $scope.matches = []
 
   DatabaseFactory.getBoardsFromFirebase()
   .then((boardsData) => {
@@ -11,7 +12,6 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
       console.log(key, "key")
     $scope.boardArray.push(boardsData[key])
     }
-  })
 
   DatabaseFactory.getPinFromFirebase()
   .then((pin)=>{
@@ -19,18 +19,17 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
       $scope.pinArray.push(pin[key])
       console.log('PINARRAY', $scope.pinArray)
     }
-    let matches = []
-    for(var i = 0; i < $scope.pinArray.length; i++){
-      for(var j = 0; j < $scope.boardArray.length; j++){
-        if($scope.pinArray[i].boardId === $scope.boardArray[j].boardId){
-          matches.push($scope.pinArray[i].boardId)
-          console.log('HOPEFUL', matches)
+    for(var i = 0; i < $scope.boardArray.length; i++){
+      $scope.boardArray[i].pins = []
+      for(var j = 0; j < $scope.pinArray.length; j++){
+        if($scope.pinArray[j].boardId === $scope.boardArray[i].boardId){
+           $scope.boardArray[i].pins.push($scope.pinArray[j])
         }
-        console.log('STATUS', $scope.pinArray[i].boardId === $scope.boardArray[j].boardId)
       }
     }
     // $scope.pinArray.push(pin)
   })
+})
 
   $scope.boardIdToPin = (id) => {
     DatabaseFactory.setBoardId(id)
