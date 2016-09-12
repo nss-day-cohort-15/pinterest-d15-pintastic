@@ -1,10 +1,10 @@
 "use strict";
 
-app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
+app.controller("BoardCtrl", function($scope, $location, DatabaseFactory, AuthFactory){
   $scope.boardArray = []
   $scope.pinArray = []
-  $scope.matches = []
 
+if(AuthFactory.getUser()){
   DatabaseFactory.getBoardsFromFirebase()
   .then((boardsData) => {
     console.log(boardsData, "boardsData")
@@ -29,6 +29,10 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
     }
   })
 })
+}else{
+  console.log('no user')
+}
+
 
   $scope.boardIdToPin = (id) => {
     DatabaseFactory.setBoardId(id)
@@ -45,29 +49,37 @@ app.controller("BoardCtrl", function($scope, $location, DatabaseFactory){
       for (var key in boards) {
         $scope.boardArray.push(boards[key])
       }
+      for(var i = 0; i < $scope.boardArray.length; i++){
+      $scope.boardArray[i].pins = []
+      for(var j = 0; j < $scope.pinArray.length; j++){
+        if($scope.pinArray[j].boardId === $scope.boardArray[i].boardId){
+           $scope.boardArray[i].pins.push($scope.pinArray[j])
+        }
+      }
+    }
     })
     })
   }
 
-  $scope.delete = (pinId) => {
-    DatabaseFactory.deletePin(pinId)
-    .then((response) => {
-      DatabaseFactory.getBoardsFromFirebase()
-      .then((boards) => {
-        $scope.boardArray = []
-        for (var key in boards) {
-          $scope.boardArray.push(boards[key])
-        }
-        DatabaseFactory.getPinFromFirebase()
-      })
-        .then((pins) => {
-          $scope.pinArray = []
-          for(var key in pins) {
-            $scope.pinArray.push(pins[key])
-            console.log(pins)
-          }
-        })
-    })
-  }
+  // $scope.delete = (pinId) => {
+  //   DatabaseFactory.deletePin(pinId)
+  //   .then((response) => {
+  //     DatabaseFactory.getBoardsFromFirebase()
+  //     .then((boards) => {
+  //       $scope.boardArray = []
+  //       for (var key in boards) {
+  //         $scope.boardArray.push(boards[key])
+  //       }
+  //       // DatabaseFactory.getPinFromFirebase()
+  //     })
+  //       .then((pins) => {
+  //         $scope.pinArray = []
+  //         for(var key in pins) {
+  //           $scope.pinArray.push(pins[key])
+  //           console.log(pins)
+  //         }
+  //       })
+  //   })
+  // }
 
 });
